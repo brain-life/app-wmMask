@@ -1,8 +1,21 @@
-function out = make_wm_mask( config )
+function out = make_wm_mask()
 %
-% out = make_wm_mask( config )
+% out = make_wm_mask()
 %
-% Copyright 2016 Franco Pestilli Indiana University 
+% 
+
+switch getenv('ENV')
+case 'IUHPC'
+        disp('loading paths (HPC)')
+        addpath(genpath('/N/u/brlife/git/vistasoft'))
+        addpath(genpath('/N/u/brlife/git/jsonlab'))
+case 'VM'
+        disp('loading paths (VM)')
+  	addpath(genpath('/usr/local/jsonlab'))
+	addpath(genpath('/usr/local/vistasoft'))
+end
+
+config = loadjson('config.json');
 
 % Below are the numeric codes for all the brain regions in the FreeSurfer
 % output that we will use as our definition of White Matter
