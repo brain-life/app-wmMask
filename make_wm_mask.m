@@ -32,7 +32,7 @@ disp('working directory is');
 pwd
 eval(sprintf('!mri_convert  --out_orientation RAS %s %s', fs_wm, wmMaskFile));
 wm       = niftiRead(wmMaskFile);
-wm.fname = 'wm.nii.gz';
+wm.fname = 'mask.nii.gz';
 out      = wm.fname;
 
 % Find the numeric codes for Regions of Interests
