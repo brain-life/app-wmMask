@@ -1,0 +1,13 @@
+if [ $ENV == "IUHPC" ]; then
+    module load freesurfer/6.0.0
+    module load matlab
+fi
+
+
+if [ $ENV == "VM" ]; then
+    export FREESURFER_HOME=/usr/local/freesurfer
+    source $FREESURFER_HOME/SetUpFreeSurfer.sh
+fi
+
+matlab -nodisplay -nosplash -r make_wm_mask
+
